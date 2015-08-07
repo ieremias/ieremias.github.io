@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Book of Common Prayer, Interactive </title>
+		<link rel="stylesheet" type="text/css" href="bcp.css">
+		<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<!--<h1>
+			The <br />
+			Book of <br />
+			Common <br />
+			Prayer
+		</h1>
+		<h2>
+			The Holy Eucharist
+			<div class="subtitle">
+				The Liturgy for the<br />
+				Proclamation of the Word of God and<br />
+				Celebration of Holy Communion
+			</div>
+		<h2>
+		-->
+		<h3> The Holy Eucharist: Rite One </h3>
+		<h4> The Word of God </h4>
+		<p class="inst">A hymn, psalm, or anthem may be sung.</p>
+		<p class="inst" id="BlessedIntro">
+			The people standing, the celebrant <a id="MayBlessed">may</a> say
+			<span class="alt">
+				* in <a id="EasterBlessed">Easter</a>, in <a id="LentBlessed">Lent</a>
+			</span>
+		</p>
+		<div id="Blessed">
+			<div class="dia">
+				<p>Blessed be God: Father, Son, and Holy Spirit.</p>
+				<p><span>People</span>And blessed be God's kingdom, now and for ever.</p>
+				<p>Amen</p>
+			</div>
+		</div>
+		<p class="inst"> The Celebrant says </p>
+		<p>
+			Almighty God, unto whom all hearts are open, all desires known, and from whom
+			no secrets are hid: Cleanse the thoughts of our hearts by the inspiration of 
+			thy Holy Spirit, that we may perfectly love thee, and worthily magnify thy holy Name;
+			through Christ our Lord. <em> Amen.</em>
+		</p>
+		<p class="inst" id="CommIntro">
+			Then the <a id="TenComm">Ten Commandments</a> may be said, or the following
+		</p>
+		<div id="Comm">
+			Hear what our Lord Jesus Christ saith:<br />
+			Thou shalt love the Lord thy God with all thy heart, and with all thy soul, 
+			and with all thy mind. This is the first and great commandment. And the second is 
+			like unto it: Thou shalt love thy neighbor as thyself. On these two commandments 
+			hang all the Law and the Prophets.
+		</div>
+		<p class="inst">
+			Here is sung or said
+			<span class="alt">
+				* <a id="Trisagion">Alternatively</a>
+			</span>
+		</p>
+		<div id="Mercy">
+			<span style="display: inline-block;vertical-align:middle">
+				Lord, have mercy upon us
+				<span class="resp">Christ, have mercy upon us</span>
+				Lord, have mercy upon us
+			</span>
+			<span style="font-style:italic;width: 60px;display:inline-block;text-align:center">or</span>
+			<span style="display: inline-block;vertical-align:middle">
+				Kyrie Eleison
+				<span class="resp">Christe Eleison</span>
+				Kyrie Eleison
+			</span>
+		</div>
+		<!-- TODO: Gloria -->
+		<h5>The Collect of the Day</h5>
+		<p class="inst">The Celebrant says to the people</p>
+		<div class="dia">
+			<p>The Lord be with you.</p>
+			<p><span>People </span>And with thy spirit.</p>
+			<p><span>Celebrant </span>Let us pray.</p>
+		</div>
+		<p class="inst">The celebrant says the Collect.</p>
+		<!-- TODO: Add collects -->
+		<div class="dia">
+			<p><span>People</span>Amen.</p>
+		</div>
+		<h5>The Lessons</h5>
+		<p class="inst">
+			The people sit. One or two Lessons, as appointed, are read,
+			the Reader first saying
+		</p>
+		<p> A Reading (Lesson) from ____________ .</p>
+		<p class="inst"> A citation giving chapter and verse may be added.</p>
+		<p class="inst"> After each Reading, the Reader may say</p>
+		<div class="dia">
+			<p>The Word of the Lord.</p>
+			<p><span>People</span>Thanks be to God.</p>
+		</div>
+		
+	</body>
+	<script>
+		$( '#MayBlessed' ).click(function() {
+			$( '#Blessed' ).slideToggle(200);
+		});
+		
+		$('body').on('click', '#EasterBlessed', function() {
+			$( '#Blessed' ).html('<div class="dia"><p>Alleluia. Christ is risen.</p><p><span>People</span>Christ is risen indeed. Alleluia.</p></div>');
+			$( '#EasterBlessed' ).parent().html('* in <a id="OrdBlessed">Ordinary Time</a>, in <a id="LentBlessed">Lent</a>');
+		}).on('click', '#LentBlessed', function() {
+			$( '#Blessed' ).html('<div class="dia"><p>Bless the Lord who forgiveth our sins.</p><p><span>People</span>His mercy endureth forever.</p></div>');
+			$( '#LentBlessed' ).parent().html('* in <a id="EasterBlessed">Easter</a>, in <a id="OrdBlessed">Ordinary Time</a>');
+		}).on('click', '#OrdBlessed', function() {
+			$( '#Blessed' ).html('<div class="dia"><p>Blessed be God: Father, Son, and Holy Spirit.</p><p><span>People</span>And blessed be God\'s kingdom, now and for ever.</p><p>Amen</p></div>');
+			$( '#OrdBlessed' ).parent().html('* in <a id="EasterBlessed">Easter</a>, in <a id="LentBlessed">Lent</a>');
+		}).on('click', '#TenComm', function() {
+			$( '#Comm' ).html('<p>God spake these words, and said:<br />I am the Lord thy God who brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have none other gods but me. <span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt not make to thyself any graven image, nor the likeness of any thing that is in heaven above, or in the earth beneath, or in the water under the earth; thou shalt not bow down to them, nor worship them.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt not take the Name of the Lord thy God in vain.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Remember that thou keep holy the Sabbath day.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Honor thy father and thy mother.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt do no murder.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt not commit adultery.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt not steal.<span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt not bear false witness against thy neighbor. <span class="resp">Lord, have mercy upon us,<br />and incline our hearts to keep this law.</span></p><p>Thou shalt not covet. <span class="resp">Lord, have mercy upon us,<br />and write all these thy laws in our hearts, we beseech thee.</span></p>');
+			$( '#CommIntro' ).html('Then the <a id="GreatComm">Great Commandment</a> may be said, or the following');
+		}).on('click', '#GreatComm', function() {
+			$( '#Comm' ).html('Hear what our Lord Jesus Christ saith:<br />Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it: Thou shalt love thy neighbor as thyself. On these two commandments hang all the Law and the Prophets.');
+			$( '#CommIntro' ).html('Then the <a id="TenComm">Ten Commandments</a> may be said, or the following');
+		}).on('click', '#Trisagion', function() {
+			$( '#Mercy' ).html('Holy God,<br />Holy and Mighty,<br />Holy Immortal One,<span class="resp">Have mercy upon us.');
+			$( '#Trisagion' ).parent().html('* <a id="Kyrie">Alternatively</a>');
+		}).on('click', '#Kyrie', function() {
+			$( '#Mercy' ).html('<span style="display: inline-block;vertical-align:middle">Lord, have mercy upon us<span class="resp">Christ, have mercy upon us</span>Lord, have mercy upon us</span><span style="font-style:italic;width: 60px;display:inline-block;text-align:center">or</span><span style="display: inline-block;vertical-align:middle">Kyrie Eleison<span class="resp">Christe Eleison</span>Kyrie Eleison</span>');
+			$( '#Kyrie' ).parent().html('* <a id="Trisagion">Alternatively</a>');
+		});
+	</script>
+</html>

@@ -1,0 +1,71 @@
+body {
+	/*font-family: 'EB Garamond', serif;*/
+	margin-left: 25%;
+	margin-right: 25%;
+	font-size: larger;
+}
+
+a {
+	text-decoration: underline;
+}
+
+p.inst {
+	font-style: italic;
+}
+
+span.alt {
+	color: gray;
+	font-size: smaller;
+	font-style: italic;
+	float: right;
+}
+
+div.dia p{
+	margin-top: 0%;
+	margin-bottom: 0%;
+	margin-left: 100px;
+	font-style: normal;
+}
+
+div.dia p span{
+	margin-left: -100px;
+	width: 100px;
+	font-style: italic;
+	display: inline-block;
+}
+
+span.resp {
+	font-style: italic;
+	margin: 0;
+	display: block;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 150px;
+	line-height: 80%;
+}
+
+h2 {
+	font-size: 60px;
+	font-weight: normal;
+}
+
+h2 div.subtitle {
+	font-size: 50%;
+}
+
+h3 {
+	font-size: 250%;
+	font-weight: normal;
+}
+
+h4 {
+	font-size: 200%;
+	font-weight: normal;
+}
+
+h5 {
+	font-size: 150%;
+	font-weight: normal;
+}
